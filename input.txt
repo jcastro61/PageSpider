@@ -1,2 +1,5 @@
 https://en.wikipedia.org/wiki/Python_(programming_language)
 https://en.wikipedia.org/wiki/Guido_van_Rossum
+https://www.tutorialspoint.com/python/dictionary_get.htm
+https://en.wikipedia.org/wiki/Guido_van_Rossum
+https://pythoninstitute.org/about/

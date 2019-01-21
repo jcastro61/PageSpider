@@ -1,4 +1,5 @@
 import sqlite3 as lite
+from typing import Dict
 
 
 def create_database(database_path: str):
@@ -18,7 +19,7 @@ def save_words_to_database(database_path: str, word_list: list):
     with conn:
         cur = conn.cursor()
         for word in word_list:
-            if word == 'the' or word == 'and' or word == 'of' or word == 'to':
+            if discard_word(word) == True:
                 continue
             sql = "select count(*) from words where word = '" + word + "'"
             cur.execute(sql)
@@ -30,3 +31,35 @@ def save_words_to_database(database_path: str, word_list: list):
             cur.execute(sql)
     conn.close()
     print("Database save completed")
+
+
+discard_words: Dict[str, bool] = {
+    "the": True,
+    "and": True,
+    "or": True,
+    "on": True,
+    "to": True,
+    "of": True,
+    "in": True,
+    "is": True,
+    "for": True,
+    "from": True,
+    "as": True,
+    "an": True,
+    "by": True,
+    "it": True,
+    "at": True,
+    'are': True,
+    'be':  True,
+    'has': True,
+    'which': True,
+    'with': True
+}
+
+
+def discard_word(word: str):
+    if discard_words.get(word.lower()) == True:
+        return True
+    else:
+        return False
+
