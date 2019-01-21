@@ -1,6 +1,6 @@
 import os
 import argparse
-from utils import url_utilities
+from utilities import url_utilities
 
 
 def main(database: str, url_list_file: str):
